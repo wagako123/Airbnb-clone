@@ -16,7 +16,7 @@ import Button from "../Button";
 const RegisterModal = () => {
 
     const registerModal= useRegisterModal();
-    const {isLoading, setIsLoading} = useState(false);
+    const [isLoading , setIsLoading] = useState(false);
 
     const{ register, handleSubmit, formState:{errors,}}=useForm<FieldValues>({
         defaultValues:{
@@ -43,7 +43,7 @@ const RegisterModal = () => {
     }
 
     const bodyContent=(
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2 ">
             <Heading
             title="welcome to Airbnb"
             subtitle="create an  account?" />
@@ -74,7 +74,7 @@ const RegisterModal = () => {
         
     );
     const footerContent = (
-        <div className="flex flex-col gap-4 mt-3">
+        <div className="flex flex-col gap-2 mt-3">
             <hr />
                 <Button outline label="Contine with google" icon={FcGoogle}
                 onClick={()=>{}}/>
