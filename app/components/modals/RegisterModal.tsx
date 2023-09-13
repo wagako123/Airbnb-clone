@@ -12,6 +12,7 @@ import Heading from "../Heading";
 import Inputs from "../inputs/Inputs";
 import { toast } from "react-hot-toast";
 import Button from "../Button";
+import { signIn } from "next-auth/react";
 
 const RegisterModal = () => {
 
@@ -29,7 +30,7 @@ const RegisterModal = () => {
     const onSubmit: SubmitHandler<FieldValues>= (data) =>{
         setIsLoading(true);
 
-        axios.post('/api/register', data)
+        axios.post('/registerApi/register', data)
          .then(()=>{
             registerModal.onClose();
          })
@@ -79,7 +80,7 @@ const RegisterModal = () => {
                 <Button outline label="Contine with google" icon={FcGoogle}
                 onClick={()=>{}}/>
                 <Button outline label="Contine with Github" icon={AiFillGithub}
-                onClick={()=>{}}/>
+                onClick={()=>signIn('github')}/>
                 <div className="text-neutral-500 text-center mt-4 font-light">
                     <div className="justify-center flex flex-row items-center gap-2">
                         <div>
